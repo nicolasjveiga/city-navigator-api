@@ -12,7 +12,7 @@ class PhotoResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'image_url' => Storage::url($this->image_url),
+            'image' => $this->image ? asset('storage/' . $this->image) : null,
             'tourist_spot_id' => $this->tourist_spot_id,
             'caption' => $this->caption,
             'city_id' => $this->city_id,

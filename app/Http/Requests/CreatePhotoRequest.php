@@ -23,21 +23,12 @@ class CreatePhotoRequest extends FormRequest
 
             'city_id' => [
                 'nullable',
-                'integer',
+                'numeric',
                 'exists:cities,id',
                 'required_without:tourist_spot_id',
             ],
-
-            'caption' => [
-                'nullable',
-                'string',
-            ],
-
-            'photo' => [
-                'required',
-                'image',
-                'max:5120', // 5MB
-            ],
+            'caption' => 'nullable|string',
+            'image' => 'required'
         ];
     }
 }

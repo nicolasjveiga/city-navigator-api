@@ -18,15 +18,26 @@ class PhotoService
         return Photo::where('tourist_spot_id', $touristSpotId)->get();
     }
 
-    public function create(Request $data): Photo
-    {
-        $path = $data->file('photo')->store('photos', 'public');
 
-        return Photo::create([
-            'image_url'       => $path,
-            'caption'         => $data->input('caption'),
-            'city_id'         => $data->input('city_id'),
-            'tourist_spot_id' => $data->input('tourist_spot_id'),
-        ]);
+    public function verifyImage(array $data)
+    {
+        if(request()->hasFile('image')) {
+            $imagePath = request()->file('image')->store('products', 'public'); //tem que mudar esse nome de caminho depois
+            $data['image'] = $imagePath;
+        }
+        return $data;
+    }
+
+    public function create(array $data): Photo
+    {
+        $data = $this->verifyImage($data);
+    
+        return Photo::create($data);
+    }
+
+    public function delete($id): void
+    {
+        $photo = Photo::findOrFail($id);
+        $photo->delete();
     }
 }

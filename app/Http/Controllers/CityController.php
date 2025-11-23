@@ -16,9 +16,9 @@ class CityController extends Controller
         $this->cityService = $cityService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $cities = $this->cityService->index();
+        $cities = $this->cityService->index($request);
 
         return CityResource::collection($cities);
     }

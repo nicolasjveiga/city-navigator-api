@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('city_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('tourist_spot_id')->nullable()->constrained()->onDelete('cascade');
-            $table->string('image_url');
+            $table->string('image');
             $table->string('caption')->nullable();
             $table->timestamps();
         });

@@ -4,11 +4,17 @@ namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Exceptions\Auth\UserNotFoundException;
 use App\Exceptions\InvalidCredentialsException;
 
 class AuthService
 {
+    public function getProfile(): User
+    {
+        return Auth::user();
+    }
+
     public function register(array $data): array
     {
         $user = User::create([

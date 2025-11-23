@@ -27,7 +27,7 @@ class ReviewController extends Controller
     {
         $reviews = $this->reviewService->getReviewsByCity($cityId);
 
-        return new ReviewResource($reviews);
+        return ReviewResource::collection($reviews);
     }
 
     public function store(CreateReviewRequest $request)

@@ -14,7 +14,19 @@ class CreateReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tourist_spot_id' => 'required|integer|exists:tourist_spots,id',
+             'tourist_spot_id' => [
+                'nullable',
+                'integer',
+                'exists:tourist_spots,id',
+                'required_without:city_id',
+            ],
+
+            'city_id' => [
+                'nullable',
+                'numeric',
+                'exists:cities,id',
+                'required_without:tourist_spot_id',
+            ],
             'comment' => 'required|string',
             'rating' => 'required|integer|between:1,5',
         ];

@@ -12,6 +12,7 @@ class City extends Model
         'description',
         'image_url',
         'average_rating'
+        // TODO: Adicionar um campo de reviews_count
     ];
 
     public function touristSpots()

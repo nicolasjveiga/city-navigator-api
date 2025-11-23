@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
 use Illuminate\Http\Request;
 use App\Services\PhotoService;
 use App\Http\Resources\PhotoResource;
@@ -42,18 +43,22 @@ class PhotoController extends Controller
 
     public function store(CreatePhotoRequest $request)
     {
-        $photo = $this->photoService->create($request);
+        $validated = $request->validated();
 
+        $photo = $this->photoService->create($validated);
+        
         return new PhotoResource($photo);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //TODO: Logic to update a specific photo
     }
 
     public function destroy($id)
     {
-        //TODO: Logic to delete a specific photo
+        $this->photoService->delete($id);
+
+        return response()->json(null, 204);
     }
 }

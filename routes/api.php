@@ -23,6 +23,8 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 
 Route::middleware(['auth:sanctum'])->group(function () {
 
+    Route::get  ('/my-profile', [AuthController::class, 'show']);
+
     Route::post ('/review', [ReviewController::class, 'store']);
     Route::get  ('/city/{id}/reviews', [ReviewController::class, 'cityReviews']);
     Route::get  ('/tourist-spot/{id}/reviews', [ReviewController::class, 'touristSpotReviews']);
@@ -47,6 +49,7 @@ Route::get  ('/tourist-spot/{id}', [TouristSpotController::class, 'show']);
 Route::post ('/photos', [PhotoController::class, 'store']);
 Route::get  ('/tourist-spot/{id}/photos', [PhotoController::class, 'touristSpotPhotos']);
 Route::get  ('/city/{id}/photos', [PhotoController::class, 'cityPhotos']);
+Route::delete ('/photo/{id}', [PhotoController::class, 'destroy']);
 
 Route::post ('/category', [CategoryController::class, 'store']);
 Route::get  ('/categories', [CategoryController::class, 'index']);

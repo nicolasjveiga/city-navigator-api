@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     protected $fillable = [
-        'tourist_spot_id',
+        'image',
+        'caption',
         'city_id',
-        'image_url',
-        'caption'
+        'tourist_spot_id',
     ];
 
     public function touristSpot()
@@ -18,3 +18,4 @@ class Photo extends Model
         return $this->belongsTo(TouristSpot::class);
     }
 }
+

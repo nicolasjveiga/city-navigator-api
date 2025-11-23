@@ -28,6 +28,48 @@ A API é focada em organizar, filtrar e recomendar pontos turísticos de forma e
 
 ---
 
+## ⚙️ Configuração Inicial
+
+1. **Crie o arquivo `.env`:**
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Acesse o terminal dentro do container:**
+   ```bash
+   docker compose exec --user 1000:1000 app sh
+   ```
+
+3. **Instale as dependências do Laravel:**
+   ```bash
+   composer update
+   ```
+
+4. **Gere a chave da aplicação:**
+   ```bash
+   php artisan key:generate
+   ```
+
+5. **Execute as migrações:**
+   ```bash
+   php artisan migrate
+   ```
+6. **Rode os seeders**
+   ```bash
+   php artisan db:seed
+   ```
+
+---
+
+## Módulos concluídos
+
+ - 1 - Forms e validação de requisições
+ - 2 - Autenticação de usuário
+ - 3 - Migrations e Relacionamentos
+ - 4 - Integridade e Integração
+ - 5 - Upload de Arquivos
+
+
 ## 📌 Funcionalidades Essenciais
 
 ### 👤 Usuários
@@ -122,103 +164,6 @@ No futuro, você pode integrar:
 
 - **Recomendações personalizadas**  
   → IA recomenda cidades, pontos, categorias e até viagens completas  
-
----
-
-## 🗄️ Modelo de Dados (ERD)
-
-### **users**
-- id  
-- name  
-- email  
-- password  
-- role  
-- created_at  
-- updated_at  
-
-### **cities**
-- id  
-- name  
-- country  
-- description  
-- image_url  
-- average_rating  
-- created_at  
-- updated_at  
-
-### **tourist_spots**
-- id  
-- city_id → cities.id  
-- name  
-- description  
-- latitude  
-- longitude  
-- created_at  
-- updated_at  
-
-### **categories**
-- id  
-- name  
-- description  
-- created_at  
-- updated_at  
-
-### **spot_categories (pivot)**
-- id  
-- tourist_spot_id → tourist_spots.id  
-- category_id → categories.id  
-- created_at  
-- updated_at  
-
-### **reviews**
-- id  
-- user_id → users.id  
-- tourist_spot_id → tourist_spots.id  
-- comment  
-- rating  
-- created_at  
-- updated_at  
-
-### **reviews_likes**
-- id  
-- review_id → reviews.id  
-- user_id → users.id  
-- created_at  
-- updated_at  
-
-### **favorites**
-- id  
-- user_id → users.id  
-- city_id → cities.id  
-- created_at  
-- updated_at  
-
-### **visited_spots**
-- id  
-- user_id → users.id  
-- tourist_spot_id → tourist_spots.id  
-- visited_at  
-- note  
-- photo_url  
-- created_at  
-- updated_at  
-
-### **photos**
-- id  
-- city_id → cities.id  
-- tourist_spot_id → tourist_spots.id  
-- image_url  
-- caption  
-- created_at  
-- updated_at  
-
-### **city_highlights**
-- id  
-- city_id → cities.id  
-- key  
-- value  
-- created_at  
-- updated_at  
 
 ---
 
