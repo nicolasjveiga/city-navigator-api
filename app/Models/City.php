@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Favorites\FavoriteCity;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class City extends Model
 {
@@ -13,8 +14,8 @@ class City extends Model
         'name',
         'country',
         'description',
-        'average_rating'
-        // TODO: Adicionar um campo de reviews_count
+        'average_rating',
+        'review_count',
     ];
 
     public function touristSpots()
@@ -24,7 +25,7 @@ class City extends Model
 
     public function favorites()
     {
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(FavoriteCity::class);
     }
 
     public function highlights()

@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Favorites;
 
+use App\Models\User;
+use App\Models\TouristSpot;
 use Illuminate\Database\Eloquent\Model;
 
-class Favorite extends Model
+class FavoriteTouristSpot extends Model
 {
+    protected $table = 'favorites_tourist_spots';
+
     protected $fillable = [
         'user_id',
-        'city_id',
         'tourist_spot_id',
     ];
 
@@ -17,14 +20,10 @@ class Favorite extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function city()
-    {
-        return $this->belongsTo(City::class);
-    }
-
-    public function touristSpot()
+    public function touristSpots()
     {
         return $this->belongsTo(TouristSpot::class);
     }
+
 }
 

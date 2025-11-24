@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Photos;
 
+use App\Models\TouristSpot;
 use Illuminate\Database\Eloquent\Model;
 
-class Photo extends Model
+class PhotoTouristSpot extends Model
 {
     protected $fillable = [
         'image',
         'caption',
-        'city_id',
         'tourist_spot_id',
     ];
 

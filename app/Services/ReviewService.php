@@ -15,7 +15,7 @@ class ReviewService
         $this->reviewRatingService = $reviewRatingService;
     }
 
-    public function getReviewsByTouristSpot($touristSpotId)
+    public function index($touristSpotId)
     {
         return Review::where('tourist_spot_id', $touristSpotId)->get();
     }

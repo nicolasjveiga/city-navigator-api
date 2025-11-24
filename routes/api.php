@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\TouristSpotController;
+use App\Http\Controllers\Review\ReviewCityController;
+use App\Http\Controllers\Review\ReviewTouristSpotController;
 
 // reviews likes
 // favorites
@@ -25,9 +26,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get  ('/my-profile', [AuthController::class, 'show']);
 
-    Route::post ('/review', [ReviewController::class, 'store']);
-    Route::get  ('/city/{id}/reviews', [ReviewController::class, 'cityReviews']);
-    Route::get  ('/tourist-spot/{id}/reviews', [ReviewController::class, 'touristSpotReviews']);
+    Route::post ('/reviews/cities', [ReviewCityController::class, 'store']);
+    Route::get  ('/city/{id}/reviews', [ReviewCityController::class, 'index']);
+
+    Route::post ('/reviews/tourist-spots', [ReviewTouristSpotController::class, 'store']);
+    Route::get  ('/tourist-spot/{id}/reviews', [ReviewTouristSpotController::class, 'index']);
+
 
     Route::post ('/favorite', [FavoriteController::class, 'store']);
     Route::get  ('/favorites', [FavoriteController::class, 'index']);
