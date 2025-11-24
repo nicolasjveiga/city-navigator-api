@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'country',
         'description',
-        'image_url',
         'average_rating'
         // TODO: Adicionar um campo de reviews_count
     ];
