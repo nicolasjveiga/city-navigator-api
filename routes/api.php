@@ -5,10 +5,11 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\TouristSpotController;
 use App\Http\Controllers\Review\ReviewCityController;
+use App\Http\Controllers\Favorites\FavoriteCityController;
 use App\Http\Controllers\Review\ReviewTouristSpotController;
+use App\Http\Controllers\Favorites\FavoriteTouristSpotController;
 
 // reviews likes
 // favorites
@@ -26,16 +27,26 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get  ('/my-profile', [AuthController::class, 'show']);
 
-    Route::post ('/reviews/cities', [ReviewCityController::class, 'store']);
+    // Reviews -- CITIES
+    Route::post ('/reviews/city', [ReviewCityController::class, 'store']);
     Route::get  ('/city/{id}/reviews', [ReviewCityController::class, 'index']);
 
+    // Reviews -- TOURIST SPOTS
     Route::post ('/reviews/tourist-spots', [ReviewTouristSpotController::class, 'store']);
     Route::get  ('/tourist-spot/{id}/reviews', [ReviewTouristSpotController::class, 'index']);
 
+    // Favorites — CITIES
+    Route::post   ('/favorites/cities',            [FavoriteCityController::class, 'store']);
+    Route::get    ('/favorites/cities',            [FavoriteCityController::class, 'index']);
+    Route::get    ('/favorites/cities/{id}',       [FavoriteCityController::class, 'show']);
+    Route::delete ('/favorites/cities/{id}',       [FavoriteCityController::class, 'destroy']);
 
-    Route::post ('/favorite', [FavoriteController::class, 'store']);
-    Route::get  ('/favorites', [FavoriteController::class, 'index']);
-    Route::delete('/favorite/{id}', [FavoriteController::class, 'destroy']);
+    // Favorites — TOURIST SPOTS
+    Route::post   ('/favorites/tourist-spots',     [FavoriteTouristSpotController::class, 'store']);
+    Route::get    ('/favorites/tourist-spots',     [FavoriteTouristSpotController::class, 'index']);
+    Route::get    ('/favorites/tourist-spots/{id}',[FavoriteTouristSpotController::class, 'show']);
+    Route::delete ('/favorites/tourist-spots/{id}',[FavoriteTouristSpotController::class, 'destroy']);
+
 });
 
 Route::post ('/city', [CityController::class, 'store']);

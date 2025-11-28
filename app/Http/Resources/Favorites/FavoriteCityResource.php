@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Favorites;
 
+use App\Http\Resources\CityResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class FavoriteResource extends JsonResource
+
+class FavoriteCityResource extends JsonResource
 {
     /**
      * @param  \Illuminate\Http\Request  $request
@@ -15,7 +17,6 @@ class FavoriteResource extends JsonResource
         return [
             'id' => $this->id,
             'city' => new CityResource($this->city),
-            'tourist_spot' => new TouristSpotResource($this->touristSpot),
         ];
     }
 

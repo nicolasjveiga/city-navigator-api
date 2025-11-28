@@ -20,7 +20,7 @@ class FavoriteTouristSpot extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function touristSpots()
+    public function touristSpot()
     {
         return $this->belongsTo(TouristSpot::class);
     }
