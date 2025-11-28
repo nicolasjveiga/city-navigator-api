@@ -8,11 +8,12 @@ use App\Models\Favorites\FavoriteCity;
 use App\Models\Review\ReviewTouristSpot;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Favorites\FavoriteTouristSpot;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     protected $fillable = [
         'name',

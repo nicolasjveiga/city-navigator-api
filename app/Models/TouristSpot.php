@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Review\ReviewTouristSpot;
 use App\Models\Favorites\FavoriteTouristSpot;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TouristSpot extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'city_id',
         'name',

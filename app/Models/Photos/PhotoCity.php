@@ -4,9 +4,12 @@ namespace App\Models\Photos;
 
 use App\Models\City;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PhotoCity extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'image',
         'caption',

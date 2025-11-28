@@ -4,9 +4,12 @@ namespace App\Models\Photos;
 
 use App\Models\TouristSpot;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PhotoTouristSpot extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'image',
         'caption',
