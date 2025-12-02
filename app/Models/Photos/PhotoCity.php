@@ -10,6 +10,8 @@ class PhotoCity extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'photos_cities';
+
     protected $fillable = [
         'image',
         'caption',

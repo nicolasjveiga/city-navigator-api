@@ -25,7 +25,9 @@ class FavoriteCityController extends Controller
 
     public function show($id)
     {
-        $this->favoriteService->show($id);
+        $favorite = $this->favoriteService->show($id);
+        
+        return new FavoriteCityResource($favorite);
     }
 
     public function store(CreateFavoriteCityRequest $request)

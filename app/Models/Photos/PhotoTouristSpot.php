@@ -10,6 +10,8 @@ class PhotoTouristSpot extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'photos_tourist_spots';
+
     protected $fillable = [
         'image',
         'caption',

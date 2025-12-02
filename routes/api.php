@@ -6,13 +6,14 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TouristSpotController;
+use App\Http\Controllers\Photos\PhotoCityController;
 use App\Http\Controllers\Review\ReviewCityController;
 use App\Http\Controllers\Favorites\FavoriteCityController;
+use App\Http\Controllers\Photos\PhotoTouristSpotController;
 use App\Http\Controllers\Review\ReviewTouristSpotController;
 use App\Http\Controllers\Favorites\FavoriteTouristSpotController;
 
 // reviews likes
-// favorites
 // visisted_spots
 // city highlights
 
@@ -61,10 +62,16 @@ Route::get  ('/tourist-spot/{id}', [TouristSpotController::class, 'show']);
 //Route::put  ('/tourist-spot/{id}', [TouristSpotController::class, 'update']);
 //Route::delete  ('/tourist-spot/{id}', [TouristSpotController::class, 'destroy']);
 
-Route::post ('/photos', [PhotoController::class, 'store']);
-Route::get  ('/tourist-spot/{id}/photos', [PhotoController::class, 'touristSpotPhotos']);
-Route::get  ('/city/{id}/photos', [PhotoController::class, 'cityPhotos']);
-Route::delete ('/photo/{id}', [PhotoController::class, 'destroy']);
+Route::post   ('/photos/tourist-spot',     [PhotoTouristSpotController::class, 'store']);
+Route::get    ('/photos/tourist-spot/{id}',[PhotoTouristSpotController::class, 'index']);
+Route::get    ('/photo-tourist-spot/{id}', [PhotoTouristSpotController::class, 'show']);
+Route::delete ('/photo-tourist-spot/{id}', [PhotoTouristSpotController::class, 'destroy']);
+
+Route::post   ('/cities/{city}/photos',[PhotoCityController::class, 'store']);
+Route::get    ('/cities/{city}/photos',[PhotoCityController::class, 'index']);
+Route::get    ('/photo-city/{id}',     [PhotoCityController::class, 'show']);
+Route::delete ('/photo-city/{id}',     [PhotoCityController::class, 'destroy']);
+
 
 Route::post ('/category', [CategoryController::class, 'store']);
 Route::get  ('/categories', [CategoryController::class, 'index']);

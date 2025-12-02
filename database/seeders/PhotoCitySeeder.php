@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Photo;
+use App\Models\Photos\PhotoCity;
 
-class PhotoSeeder extends Seeder
+class PhotoCitySeeder extends Seeder
 {
     public function run(): void
     {
@@ -33,7 +33,7 @@ class PhotoSeeder extends Seeder
         ];
 
         foreach ($photos as $p) {
-            Photo::create($p);
+            PhotoCity::create($p);
         }
     }
 }
