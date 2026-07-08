@@ -1,10 +1,10 @@
 <?php 
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Review;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateReviewCityRequest extends FormRequest
+class CreateReviewTouristSpotRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,7 +14,7 @@ class CreateReviewCityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'city_id' => 'nullable|numeric|exists:cities,id',
+            'tourist_spot_id' => 'nullable|numeric|exists:tourist_spots,id',
             'comment' => 'required|string',
             'rating' => 'required|integer|between:1,5',
         ];

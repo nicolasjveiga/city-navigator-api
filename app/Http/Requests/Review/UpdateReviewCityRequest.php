@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Review;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFavoriteCityRequest extends FormRequest
+class UpdateReviewCityRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,7 +14,8 @@ class CreateFavoriteCityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'city_id' => 'nullable|integer|exists:cities,id',
+            'comment' => 'sometimes|string',
+            'rating' => 'sometimes|integer|between:1,5',
         ];
     }
 }

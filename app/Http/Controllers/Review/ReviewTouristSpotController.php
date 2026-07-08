@@ -7,8 +7,8 @@ use App\Services\ReviewService;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ReviewResource;
 use App\Services\Review\ReviewTouristSpotService;
-use App\Http\Requests\CreateReviewTouristSpotRequest;
-use App\Http\Requests\UpdateReviewTouristSpotRequest;
+use App\Http\Requests\Review\CreateReviewTouristSpotRequest;
+use App\Http\Requests\Review\UpdateReviewTouristSpotRequest;
 
 class ReviewTouristSpotController extends Controller
 {

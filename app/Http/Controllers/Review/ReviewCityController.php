@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Review;
 
 use App\Http\Controllers\Controller;
 use App\Services\Review\ReviewCityService;
-use App\Http\Requests\CreateReviewCityRequest;
-use App\Http\Requests\UpdateReviewCityRequest;
+use App\Http\Requests\Review\CreateReviewCityRequest;
+use App\Http\Requests\Review\UpdateReviewCityRequest;
 use App\Http\Resources\Review\ReviewCityResource;
 
 class ReviewCityController extends Controller

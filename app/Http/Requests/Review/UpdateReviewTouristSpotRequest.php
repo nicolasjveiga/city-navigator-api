@@ -1,10 +1,10 @@
 <?php 
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Review;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateReviewCityRequest extends FormRequest
+class UpdateReviewTouristSpotRequest extends FormRequest
 {
     public function authorize(): bool
     {

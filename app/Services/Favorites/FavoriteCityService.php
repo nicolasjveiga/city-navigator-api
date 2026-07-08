@@ -7,11 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoriteCityService
 {
-    public function show ($id)
-    {
-        return FavoriteCity::findOrFail($id);
-    }
-
     public function index()
     {
         return FavoriteCity::where('user_id', Auth::id())->get();

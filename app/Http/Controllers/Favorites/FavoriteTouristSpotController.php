@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Favorites;
 
 use App\Http\Controllers\Controller;
 use App\Services\Favorites\FavoriteTouristSpotService;
-use App\Http\Requests\CreateFavoriteTouristSpotRequest;
+use App\Http\Requests\Favorites\CreateFavoriteTouristSpotRequest;
 use App\Http\Resources\Favorites\FavoriteTouristSpotResource;
 
 class FavoriteTouristSpotController extends Controller
@@ -21,11 +21,6 @@ class FavoriteTouristSpotController extends Controller
         $favorites = $this->favoriteService->index();
 
         return FavoriteTouristSpotResource::collection($favorites);
-    }
-
-    public function show($id)
-    {
-        $this->favoriteService->show($id);
     }
 
     public function store(CreateFavoriteTouristSpotRequest $request)

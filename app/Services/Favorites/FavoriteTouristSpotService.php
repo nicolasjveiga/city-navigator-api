@@ -7,11 +7,6 @@ use App\Models\Favorites\FavoriteTouristSpot;
 
 class FavoriteTouristSpotService
 {
-    public function show ($id)
-    {
-        return FavoriteTouristSpot::findOrFail($id);
-    }
-
     public function index()
     {
         return FavoriteTouristSpot::where('user_id', Auth::id())->get();

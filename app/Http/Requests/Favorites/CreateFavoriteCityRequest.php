@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Favorites;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateFavoriteTouristSpotRequest extends FormRequest
+class CreateFavoriteCityRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,7 +14,7 @@ class CreateFavoriteTouristSpotRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tourist_spot_id' => 'nullable|integer|exists:tourist_spots,id',
+            'city_id' => 'nullable|integer|exists:cities,id',
         ];
     }
 }

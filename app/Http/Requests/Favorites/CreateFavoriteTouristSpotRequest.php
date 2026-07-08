@@ -1,10 +1,10 @@
-<?php 
+<?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Favorites;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateReviewTouristSpotRequest extends FormRequest
+class CreateFavoriteTouristSpotRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,8 +14,7 @@ class UpdateReviewTouristSpotRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'comment' => 'sometimes|string',
-            'rating' => 'sometimes|integer|between:1,5',
+            'tourist_spot_id' => 'nullable|integer|exists:tourist_spots,id',
         ];
     }
 }
