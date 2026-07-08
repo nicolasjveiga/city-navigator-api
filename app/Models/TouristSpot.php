@@ -3,14 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Review\ReviewTouristSpot;
+use App\Models\Favorites\FavoriteTouristSpot;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TouristSpot extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'city_id',
         'name',
         'description',
-        'image_url',
+        'average_rating',
+        'review_count',
         'latitude',
         'longitude',
     ];
@@ -32,7 +38,7 @@ class TouristSpot extends Model
 
     public function reviews()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(ReviewTouristSpot::class);
     }
 
     public function categories()
@@ -42,7 +48,7 @@ class TouristSpot extends Model
 
     public function favorites()
     {
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(FavoriteTouristSpot::class);
     }
 
     public function visitedBy()

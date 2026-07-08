@@ -18,6 +18,7 @@ class TouristSpotResource extends JsonResource
             'city' => $this->city?->name,
             'name' => $this->name,
             'description' => $this->description,
+            'average_rating' => $this->average_rating,
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
         ];

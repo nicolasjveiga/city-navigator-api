@@ -13,9 +13,11 @@ return new class extends Migration {
             $table->string('name', 255);
             $table->text('description')->nullable();
             $table->float('average_rating')->default(0);
+            $table->integer('review_count')->default(0);
             $table->decimal('latitude', 10, 8)->nullable();
             $table->decimal('longitude', 11, 8)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -1,15 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Photos;
 
+use App\Models\TouristSpot;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Photo extends Model
+class PhotoTouristSpot extends Model
 {
+    use SoftDeletes;
+
+    protected $table = 'photos_tourist_spots';
+
     protected $fillable = [
         'image',
         'caption',
-        'city_id',
         'tourist_spot_id',
     ];
 
